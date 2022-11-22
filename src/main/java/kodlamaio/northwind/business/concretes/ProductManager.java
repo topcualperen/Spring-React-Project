@@ -36,7 +36,7 @@ public class ProductManager implements ProductService {
     @Override
     public DataResult<Product> getByProductName(String productName) {
         return new SuccessDataResult<Product>
-                (this.productDao.getByProductName(productName), "Data Listelendi. ");
+                (this.productDao.getByProductName(productName), "Data Listelendi.");
     }
 
     @Override
