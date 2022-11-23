@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface ProductService {
     DataResult<List<Product>> getAll();
+
     Result add(Product product);
 
     DataResult<Product> getByProductName(String productName);
