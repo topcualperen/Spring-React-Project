@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "products") // veritabanında hangi tabloya karşılık geldiğini belirttik
 @AllArgsConstructor  // constructor yazmamak için kullandık
 @NoArgsConstructor  // parametresiz constructor yazmamak için kullandık
-public class Product {
+public class  Product {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY) // veriler birer birer arttığını gösterir.

@@ -8,7 +8,13 @@ import kodlamaio.northwind.core.utilities.results.SuccessResult;
 import kodlamaio.northwind.dataAccess.abstracts.ProductDao;
 import kodlamaio.northwind.entities.concretes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+
+
 import java.util.List;
 
 @Service
@@ -28,6 +34,22 @@ public class ProductManager implements ProductService {
     }
 
     @Override
+    public DataResult<List<Product>> getAll(int pageNo, int pageSize) {
+
+        Pageable pageable = (Pageable) PageRequest.of(pageNo-1, pageSize);
+
+        return new SuccessDataResult<List<Product>>(this.productDao.findAll(pageable).getContent());
+    }
+
+    @Override
+    public DataResult<List<Product>> getAllSorted() {
+
+        Sort sort = Sort.by(Sort.Direction.DESC, "productName");
+
+        return new SuccessDataResult<List<Product>>(this.productDao.findAll(sort), "Başarılı Mesajı");
+    }
+
+    @Override
     public Result add(Product product) {
         this.productDao.save(product);
         return new SuccessResult("Ürün eklendi. ");
@@ -44,13 +66,13 @@ public class ProductManager implements ProductService {
         // iş kodları (business code)
 
         return new SuccessDataResult<Product>
-                (this.productDao.getByProductNameAndCategory(productName, categoryId), "Data Listelendi.");
+                (this.productDao.getByProductNameAndCategory_CategoryId(productName, categoryId), "Data Listelendi.");
     }
 
     @Override
     public DataResult<List<Product>> getByProductNameOrCategoryId(String productName, int categoryId) {
         return new SuccessDataResult<List<Product>>
-                (this.productDao.getByProductNameOrCategory(productName, categoryId), "Data Listelendi.");
+                (this.productDao.getByProductNameOrCategory_CategoryId(productName, categoryId), "Data Listelendi.");
     }
 
     @Override
