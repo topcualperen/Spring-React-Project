@@ -41,30 +41,30 @@ public class ProductsController {
         return this.productService.getByProductNameAndCategoryId(productName, categoryId);
     }
 
-    @GetMapping("/getByProoductNameOrCategoryId")
-    public DataResult<List<Product>> getByProductNameOrCategoryId(@RequestParam String productName, @RequestParam int categoryId){
-        return this.productService.getByProductNameOrCategoryId(productName, categoryId);
-    }
+//    @GetMapping("/getByProoductNameOrCategoryId")
+//    public DataResult<List<Product>> getByProductNameOrCategoryId(@RequestParam String productName, @RequestParam int categoryId){
+//        return this.productService.getByProductNameOrCategoryId(productName, categoryId);
+//    }
 
-    @GetMapping("/getByCategoryIdIn")
-    public DataResult<List<Product>> getByCategoryIdIn(@RequestParam List<Integer> categories){
-        return this.productService.getByCategoryIdIn(categories);
-    }
+//    @GetMapping("/getByCategoryIdIn")
+//    public DataResult<List<Product>> getByCategoryIdIn(@RequestParam List<Integer> categories){
+//        return this.productService.getByCategoryIdIn(categories);
+//    }
 
     @GetMapping("/getByProductNameContains")
     public DataResult<List<Product>> getByProductNameContains(@RequestParam String productName){
         return this.productService.getByProductNameContains(productName);
     }
 
-    @GetMapping("/getByProductNameStartsWith")
-    public DataResult<List<Product>> getByProductNameStartsWith(@RequestParam String productName){
-        return this.productService.getByProductNameStartsWith(productName);
-    }
-
-    @GetMapping("/getByNameAndCategory")
-    public DataResult<List<Product>> getByNameAndCategory(@RequestParam String productName, @RequestParam int categoryId){
-        return this.productService.getByNameAndCategory(productName, categoryId);
-    }
+//    @GetMapping("/getByProductNameStartsWith")
+//    public DataResult<List<Product>> getByProductNameStartsWith(@RequestParam String productName){
+//        return this.productService.getByProductNameStartsWith(productName);
+//    }
+//
+//    @GetMapping("/getByNameAndCategory")
+//    public DataResult<List<Product>> getByNameAndCategory(@RequestParam String productName, @RequestParam int categoryId){
+//        return this.productService.getByNameAndCategory(productName, categoryId);
+//    }
 
     @GetMapping("/getAllByPage")
     public DataResult<List<Product>> getAll(int pageNo, int pageSize){

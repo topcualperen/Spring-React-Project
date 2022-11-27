@@ -13,10 +13,10 @@ public class  Product {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY) // veriler birer birer arttığını gösterir.
-        // @Column(name = "product_id")
-        // private int id;
-        @Column(name = "category_id")
-        private int categoryId;
+         @Column(name = "product_id")
+        private int id;
+//        @Column(name = "category_id")
+//        private int categoryId;
         @Column(name = "product_name")
         private String productName;
         @Column(name = "unit_price")
@@ -26,8 +26,8 @@ public class  Product {
         @Column(name = "quantity_per_unit")
         private String quantityPerUnity;
 
-        @ManyToOne
-        @JoinColumn(name = "category_category_id")
+        @ManyToOne()
+        @JoinColumn(name = "category_id")
         private Category category;
 
 }
